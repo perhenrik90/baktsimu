@@ -42,8 +42,8 @@ function createBakterie(x_pos, y_pos)
 
 		function kill(e)
 		{
-			alert("bing");
-			stage.children.removeChild(e.target);
+			console.log(e);
+			stage.removeChild(e.target);
 		}
 		bakt.mouseover  = kill;
 		bakt.setInteractive(true);
