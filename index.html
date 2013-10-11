@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="main.css" rel="stylesheet" type="text/css" />
+	<script src="pixi.js"></script>
+	<script src="bakterie.js"></script>
+
+</head>
+
+<body>
+	<script>
+		var stage  = new PIXI.Stage(0xEEEEEE);
+		var renderer = PIXI.autoDetectRenderer(800,400);
+		document.body.appendChild(renderer.view);
+
+		requestAnimFrame( animate ); 
+	
+		bakt = createBakterie(250,70);
+
+		stage.addChild(bakt);
+
+		renderer.render(stage);
+
+		function animate()
+		{
+			requestAnimFrame( animate );		
+
+			for(i in stage.children)
+			{
+				b = stage.children[i];
+				b.update(b);
+			}
+			renderer.render( stage );	
+		}	
+
+		function duplicate()
+		{
+			list = stage.children;
+
+			for(i in list)
+			{
+				b = list[i];
+			
+				x = b.position.x;
+				y = b.position.y;
+		
+				offset = 20;	
+				x = x + (Math.random()*offset)-(offset/2);	
+				y = y + (Math.random()*offset)-(offset/2);
+			
+				bakt = createBakterie(x,y);
+				stage.addChild(bakt);
+			}
+		}	
+	</script>
+	<div class="button" onclick="duplicate()">Dupliser</div>
+
+</body>
+</html>
