@@ -49,7 +49,7 @@
 			MAX_BAKT = 250;
 			if(list.length > MAX_BAKT)
 			{
-				alert("Maks bakterier er nådd: "+list.legnth);
+				alert("Maks bakterier: "+list.legnth);
 				return;
 			}
 			if(list.length == 0)
@@ -67,17 +67,15 @@
 				x = b.position.x;
 				y = b.position.y;
 		
-				offset = 20;	
-				x = x + (Math.random()*offset)-(offset/2);	
-				y = y + (Math.random()*offset)-(offset/2);
 			
 				bakt = createBakterie(x,y);
 				stage.addChild(bakt);
 			}
-			console.log("Antall bakterier: "+list.length);
+			document.getElementById("antallLabel").innerHTML = "Antall bakterier: "+list.length;
 		}	
 	</script>
 	<div class="button" onclick="duplicate()">Dupliser</div>
+	<p id="antallLabel">En bakterie</p>
 
 </body>
 </html>
