@@ -1,7 +1,14 @@
 body
 {
+	background-color:rgb(1,10,15);
 	padding:2px;			
 	text-align:center;
+}
+
+p,h1,h2	
+{
+	color:#FFF;
+	font-family:areal;
 }
 
 .koloniView
@@ -9,7 +16,7 @@ body
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:10px;
-	border:1px solid black;
+	border:2px solid white;
 	border-radius:5px;
 }
 
@@ -24,4 +31,9 @@ body
 	width:20%;
 	background-color:#AAAAFF;
 	border-radius:5px;
+}
+
+#antallLabel
+{
+	font-size:32px;
 }
