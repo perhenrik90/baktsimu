@@ -8,11 +8,19 @@
 </head>
 
 <body>
+	<div id="koloniView" class="koloniView"></div>
 	<script>
 		var stage  = new PIXI.Stage(0xEEEEEE, true);
-		var renderer = PIXI.autoDetectRenderer(800,400);
-		document.body.appendChild(renderer.view);
+		stage.className = "koloniView";
+		var width = 800;
+		var height= 400;
 
+		var renderer = PIXI.autoDetectRenderer(width,height);
+
+		div = document.getElementById("koloniView")
+		div.appendChild(renderer.view);
+		div.style.width = width+"px";
+		div.style.height= height+"px";
 		requestAnimFrame( animate ); 
 	
 		bakt = createBakterie(250,70);
@@ -37,6 +45,14 @@
 		{
 			list = stage.children;
 
+			if(list.length == 0)
+			{
+				x = renderer.view.width /2;
+				y = renderer.view.height /2;
+				bakt = createBakterie(x,y);
+				stage.addChild(bakt);
+				return;
+			}
 			for(i in list)
 			{
 				b = list[i];
