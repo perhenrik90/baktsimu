@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="uft8"/>
 	<link href="main.css" rel="stylesheet" type="text/css" />
 	<script src="pixi.js"></script>
 	<script src="bakterie.js"></script>
@@ -45,7 +46,12 @@
 		function duplicate()
 		{
 			list = stage.children;
-
+			MAX_BAKT = 250;
+			if(list.length > MAX_BAKT)
+			{
+				alert("Maks bakterier er nådd: "+list.legnth);
+				return;
+			}
 			if(list.length == 0)
 			{
 				x = renderer.view.width /2;
@@ -68,6 +74,7 @@
 				bakt = createBakterie(x,y);
 				stage.addChild(bakt);
 			}
+			console.log("Antall bakterier: "+list.length);
 		}	
 	</script>
 	<div class="button" onclick="duplicate()">Dupliser</div>

@@ -18,13 +18,13 @@ function createBakterie(x_pos, y_pos)
 	bakt.spinn	= (Math.random()-0.5)*0.1;
 		
 		/** setup next position updater ***/
-		bakt.x	= (Math.random()*0.5)-0.25;
-		bakt.y	= (Math.random()*0.5)-0.25;
+		bakt.x	= (Math.random()-0.5)*0.5;
+		bakt.y	= (Math.random()-0.5)*0.5;
 
 		bakt.update = function(bakt)
 		{
-			g_faktor = 0.00005;
-			g_max	 = 15;
+			g_faktor = 0.00008;
+			g_max	 = 20;
 			g_min    = 6;
 
 
@@ -38,13 +38,14 @@ function createBakterie(x_pos, y_pos)
 
 					/** x -akse **/
 					nx      = (nabo.position.x - bakt.position.x);	
+					nx	-= (Math.abs(nabo.position.y - bakt.position.y));
  
 					if(Math.abs(nx) < g_max && Math.abs(nx) > g_min)
 						bakt.x  += (nx*g_faktor)*rnd_faktor;
 
 					/** y - akse **/
 					ny		= (nabo.position.y - bakt.position.y);
-
+					ny	-= (nabo.position.x - bakt.position.x);
 					if(Math.abs(ny) < g_max && Math.abs(ny) > g_min)
 						bakt.y  += (ny*g_faktor)*rnd_faktor;
 				}	
