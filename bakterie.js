@@ -3,7 +3,7 @@
  *
  */
  var __fysikk__;
- __fysikk__ = false;;
+ __fysikk__ = true;
 
 function createBakterie(x_pos, y_pos)
 {
@@ -13,8 +13,9 @@ function createBakterie(x_pos, y_pos)
         bakt.anchor.y 	= 0.5;
         bakt.position.x = x_pos;
         bakt.position.y = y_pos;
-		bakt.width	= 20;
-		bakt.height	= 20;
+	bakt.width	= 20;
+	bakt.height	= 20;
+	bakt.spinn	= (Math.random()-0.5)*0.1;
 		
 		/** setup next position updater ***/
 		bakt.x	= (Math.random()*0.5)-0.25;
@@ -71,6 +72,7 @@ function createBakterie(x_pos, y_pos)
 
 
 			/** update position **/
+			bakt.rotation   += bakt.spinn
 			bakt.position.x += bakt.x;
 			bakt.position.y += bakt.y;
 		}
