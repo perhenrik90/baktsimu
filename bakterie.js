@@ -5,7 +5,7 @@
 
  var __fysikk__;
  __fysikk__ = true;
- __MAX_WIDTH__ = 25;
+ __MAX_WIDTH__ = 5;
 
 function createBakterie(x_pos, y_pos)
 {
@@ -42,7 +42,7 @@ function createBakterie(x_pos, y_pos)
 					if(nabo == bakt){break;}
 
 					/** x -akse **/
-					nnx     = (bakt.position.x-nabo.position.x);//+nabo.width;	
+					nnx     = (bakt.position.x-nabo.lastx);//+nabo.width;	
 					
 					if(Math.abs(nnx) < g_max && Math.abs(nnx) > g_min)
 					{
@@ -55,7 +55,7 @@ function createBakterie(x_pos, y_pos)
 
 
 					/** y - akse **/
-					nny	= (bakt.position.y - nabo.position.y);
+					nny	= (bakt.position.y - nabo.lasty);
 
 					if(Math.abs(nny) < g_max && Math.abs(nny) > g_min)
 					{
@@ -92,6 +92,9 @@ function createBakterie(x_pos, y_pos)
 				bakt.y = -Math.random()*1;
 			}	
 
+
+			bakt.lastx	= bakt.position.x;
+			bakt.lasty	= bakt.position.y;
 
 			/** update position **/
 			bakt.rotation   += bakt.spinn
