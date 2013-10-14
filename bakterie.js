@@ -1,10 +1,11 @@
 /*****
  * Lager en bakterie
- *
+ *  @author Per-Henrik E. Kvalnes
  */
+
  var __fysikk__;
  __fysikk__ = true;
- __MAX_WIDTH__ = 21;
+ __MAX_WIDTH__ = 25;
 
 function createBakterie(x_pos, y_pos)
 {
@@ -14,7 +15,7 @@ function createBakterie(x_pos, y_pos)
         bakt.anchor.y 	= 0.5;
         bakt.position.x = x_pos;
         bakt.position.y = y_pos;
-	bakt.width	= 10 + parseInt(Math.random()*__MAX_WIDTH__);
+	bakt.width	= 20 + parseInt(Math.random()*__MAX_WIDTH__);
 	bakt.height	= bakt.width;
 	bakt.spinn	= (Math.random()-0.5)*0.1;
 	
@@ -24,8 +25,8 @@ function createBakterie(x_pos, y_pos)
 
 		bakt.update = function(bakt)
 		{
-			g_faktor = 0.000002;
-			g_max	 = 45;
+			g_faktor = 0.00002 / stage.children.length;
+			g_max	 = 100;
 			g_min    = 2;
 
 
@@ -36,6 +37,7 @@ function createBakterie(x_pos, y_pos)
 				{
 					rnd_faktor = 1;
 					nabo	= stage.children[i];
+					n	= stage.children.length;
 
 					if(nabo == bakt){break;}
 
@@ -46,7 +48,7 @@ function createBakterie(x_pos, y_pos)
 					{
 						nx	= Math.abs(nnx-width);		// invert
 						if(nnx < 0){nx = -nx;}
-						nx 	= nx * (nabo.width/__MAX_WIDTH__);
+						nx 	= nx * (bakt.width*2/__MAX_WIDTH__);
 						bakt.x  += (nx*g_faktor)*rnd_faktor;
 					}
 
@@ -59,15 +61,15 @@ function createBakterie(x_pos, y_pos)
 					{
 						ny	= Math.abs(nny-height);		// invert
 						if(nny < 0){ny = -ny;}
-						ny 	= ny * (nabo.width/__MAX_WIDTH__);
+						ny 	= ny * (bakt.width*2/__MAX_WIDTH__);
 
 						bakt.y  += (ny*g_faktor)*rnd_faktor;
 						
 					}
 				}
 				
-				bakt.x = bakt.x * 0.9999;
-				bakt.y = bakt.y * 0.9999;	
+				bakt.x = bakt.x * 0.99999;
+				bakt.y = bakt.y * 0.99959;	
 			}
 
 

@@ -1,6 +1,11 @@
+/*****
+ * CSS for bakterie simulator
+ *
+ * @author Per-Henrik E.Kvalnes
+ */
 body
 {
-	background-color:rgb(1,10,15);
+	background-color:rgb(1,15,25);
 	padding:2px;			
 	text-align:center;
 }
@@ -31,6 +36,14 @@ p,h1,h2
 	width:20%;
 	background-color:#AAAAFF;
 	border-radius:5px;
+
+	box-shadow:5px 5px 5px #000;
+
+}
+.button:hover
+{
+	background-color:#444444;
+	color:#AAAAFF;
 }
 
 #antallLabel
